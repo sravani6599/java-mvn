@@ -23,7 +23,7 @@
 
 <center>Java Web Application Project</center>
 <center>Deploy WebApplication with Jenkins Code Integration </center>
-<center> Project by Sravani Donga</center>
+<center> Project by Sravani</center>
 
 <hr>
 
