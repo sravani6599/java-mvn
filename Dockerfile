@@ -15,7 +15,7 @@ RUN mvn --version
 # Stage 2 (to create a downsized "container executable", ~180MB)
 FROM eclipse-temurin:17-jre-alpine
 RUN apk --no-cache add ca-certificates
-WORKDIR /home/
+WORKDIR ./webapp
 COPY --from=builder /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war
 
 
