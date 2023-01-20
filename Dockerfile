@@ -9,7 +9,7 @@ FROM eclipse-temurin:17-jdk-alpine AS builder
 RUN java -version
 
 COPY . /home/ec2-user/actions-runner/
-WORKDIR /home/ec2-user/actions-runner/
+WORKDIR ./webapp
 RUN mvn --version
 
 # Stage 2 (to create a downsized "container executable", ~180MB)
