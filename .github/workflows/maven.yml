@@ -29,7 +29,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-           mkdir staging && cp target/*.war staging
+           
      
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
      # run: mvn --batch-mode --update-snapshots verify
@@ -38,13 +38,12 @@ jobs:
     # with:
      # name: Package
      # path: staging
-    - name: Upload a Build Artifact
+    - name: Upload a Download Artifact
      
-      uses: actions/upload-artifact@v3.1.2
-      
+      uses: actions/Download-artifact@v3.0.2
       with:
     # Artifact name
         name: Build artifact #default is artifact
     # A file, directory or wildcard pattern that describes what to upload
-        path: staging
+        path: ./webapp
     
