@@ -7,17 +7,21 @@
 FROM eclipse-temurin:17-jdk-alpine AS builder
 # smoke test to verify if java is available
 RUN java -version
+FROM eclipse-temurin:11
+RUN mkdir /opt/app
+COPY webapp.war /opt/app
+CMD ["java", "-war", "/opt/app/webapp.war"]
 
-COPY . /home/ec2-user/actions-runner/
-WORKDIR ./webapp
-RUN mvn --version
+#COPY . /home/ec2-user/actions-runner/
+#WORKDIR ./webapp
+#RUN mvn --version
 
 # Stage 2 (to create a downsized "container executable", ~180MB)
-FROM eclipse-temurin:17-jre-alpine
-RUN apk --no-cache add ca-certificates
-WORKDIR ./webapp
-COPY --from=builder /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war
+#FROM eclipse-temurin:17-jre-alpine
+#RUN apk --no-cache add ca-certificates
+#WORKDIR ./webapp
+#COPY --from=builder /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war
 
 
-EXPOSE 8123
-ENTRYPOINT ["java", "-war", "./webapp.war"]
+#EXPOSE 8123
+#ENTRYPOINT ["java", "-war", "./webapp.war"]
