@@ -9,7 +9,7 @@ FROM eclipse-temurin:17-jdk-alpine AS builder
 RUN java -version
 FROM eclipse-temurin:11
 RUN mkdir /opt/app
-COPY webapp.war /opt/app
+COPY  /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/webapp.war /opt/app
 CMD ["java", "-war", "/opt/app/webapp.war"]
 
 #COPY . /home/ec2-user/actions-runner/
