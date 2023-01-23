@@ -67,13 +67,19 @@ jobs:
          username: ${{ secrets.DOCKERHUB_USERNAME }}
          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-     - name: Download artifact
-       uses: actions/download-artifact@v2
+    
+     - name: Upload a Download Artifact
+       uses: actions/Download-artifact@v3.0.2
+       with:
+    # Artifact name
+        name: Build artifact #default is artifact
+    # A file, directory or wildcard pattern that describes what to upload
+        path: ./webapp
 
      -  name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v3.0.2
         with:
-          context: "{{defaultContext}}:mysubdir"
+          context: .
           push: true
           tags: user/app:latest
     
