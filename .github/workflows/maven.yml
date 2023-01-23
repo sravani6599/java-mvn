@@ -70,9 +70,10 @@ jobs:
      - name: Download artifact
        uses: actions/download-artifact@v2
 
-     - name: Build and push
-       uses: docker/build-push-action@v2
-       with:
+     -  name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: "{{defaultContext}}:mysubdir"
           push: true
-          tags: myuser/new_repository/imagename:tag
+          tags: user/app:latest
     
