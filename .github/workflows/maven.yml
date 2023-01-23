@@ -77,5 +77,5 @@ jobs:
          context: .
          file: ./Dockerfile
          push: true
-         tags: javaimage/repo1:v${{github.run_number}}
+         tags: javaimage/repo1
     
