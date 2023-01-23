@@ -7,7 +7,7 @@
 FROM eclipse-temurin:17-jdk-alpine AS builder
 # smoke test to verify if java is available
 RUN java -version
-FROM eclipse-temurin:11
+#FROM eclipse-temurin:11
 RUN mkdir /opt/app
 COPY /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/webapp.war /opt/app
 CMD ["webapp", "-war", "/opt/app/webapp.war"]
