@@ -10,7 +10,7 @@ RUN java -version
 FROM eclipse-temurin:11
 RUN mkdir /opt/app
 COPY /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/webapp.war /opt/app
-CMD ["java", "-war", "/opt/app/webapp.war"]
+CMD ["webapp", "-war", "/opt/app/webapp.war"]
 
 #COPY . /home/ec2-user/actions-runner/
 #WORKDIR ./webapp
