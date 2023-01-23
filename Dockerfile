@@ -4,14 +4,14 @@
 # (https://docs.docker.com/build/building/multi-stage/)
 
 # Stage 1 (to create a "build" image, ~360MB)
-FROM eclipse-temurin:17-jdk-alpine AS builder
+#FROM eclipse-temurin:17-jdk-alpine AS builder
 # smoke test to verify if java is available
-RUN java -version
+#RUN java -version
 #FROM eclipse-temurin:11
-RUN mkdir /opt/app
-ENTRYPOINT ["/home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/webapp.war"]
-COPY /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/webapp.war /opt/app
-CMD ["webapp", "-war", "/opt/app/webapp.war"]
+#RUN mkdir /opt/app
+#ENTRYPOINT ["/home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/webapp.war"]
+#COPY /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/webapp.war /opt/app
+#CMD ["webapp", "-war", "/opt/app/webapp.war"]
 
 #COPY . /home/ec2-user/actions-runner/
 #WORKDIR ./webapp
