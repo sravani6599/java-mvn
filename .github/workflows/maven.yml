@@ -69,7 +69,7 @@ jobs:
 
     
      - name: Upload a Download Artifact
-       uses: actions/Download-artifact@v3.0.2
+       uses: actions/Download-artifact@v3
        with:
     # Artifact name
         name: Build artifact #default is artifact
@@ -77,7 +77,7 @@ jobs:
         path: ./webapp
 
      -  name: Build and push
-        uses: docker/build-push-action@v3.0.2
+        uses: docker/build-push-action@v3
         with:
           context: .
           push: true
