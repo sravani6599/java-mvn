@@ -71,11 +71,8 @@ jobs:
        uses: actions/download-artifact@v2
 
      - name: Build and push
-       id: docker_build
        uses: docker/build-push-action@v3
        with:
-         context: .
-         file: ./Dockerfile
-         push: true
-         tags: user/app:latest
+          push: true
+          tags: user/app:latest
     
