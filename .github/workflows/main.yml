@@ -56,6 +56,12 @@ jobs:
        with:
          username: ${{ secrets.DOCKERHUB_USERNAME }}
          password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+     -  name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: myimage/app
 
      - name: Download artifact
        uses: actions/download-artifact@v2
@@ -67,6 +73,6 @@ jobs:
          context: .
          file: ./Dockerfile
          push: true
-         tags: myimage
+         tags: latest
     # - name: Build the Docker image
      #  run: docker build . --file Dockerfile --tag my-image-name 
