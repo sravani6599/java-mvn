@@ -55,6 +55,8 @@ jobs:
        uses: actions/setup-java@v3
        with:
          java-version: '11' 
+         distribution: 'temurin'
+         cache: maven
 
      #- name: Update version
       # run: mvn -B versions:set -DnewVersion=v${{github.run_number}} -DgenerateBackupPoms=false
