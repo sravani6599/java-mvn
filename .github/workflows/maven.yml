@@ -77,6 +77,12 @@ jobs:
         name: Build artifact #default is artifact
     # A file, directory or wildcard pattern that describes what to upload
         path: ./webapp
+     - name: Copy war file
+       id: root
+       with:
+          src: /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war 
+          dest: /home/app/webapp.war
+          remote_src: no
     
      - name: Set up Docker Buildx
        id: buildx
