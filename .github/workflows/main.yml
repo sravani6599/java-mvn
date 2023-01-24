@@ -1,5 +1,6 @@
 # This workflow will build a Java project with Maven and build and push docker image to Docker Hub
 
+
 name: Build and Push docker image to Docker Hub
 on:
   push:
@@ -9,7 +10,7 @@ on:
 
 jobs:
   Build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -23,33 +24,27 @@ jobs:
       #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
     - name: Create artifacts directory and copy war file
-      #run: mkdir artifacts && cp target/*.war artifacts
-
+      run: mkdir artifacts && cp target/*.war artifacts
+      
+    - name: upload the artifact
       uses: actions/upload-artifact@v2
       with:
         name: webapp.war
         path: target/webapp.war
-    - name: Upload a Download Artifact
-      uses: actions/Download-artifact@v3.0.2
-      with:
-    # Artifact name
-        name: Build artifact #default is artifact
-    # A file, directory or wildcard pattern that describes what to upload
-        path: ./webapp
 
 
   Publish:
      needs: Build
-     runs-on: self-hosted
-     steps:
+     runs-on: ubuntu-latest
+     steps: 
      - uses: actions/checkout@v2
      - name: Set up JDK 11
        uses: actions/setup-java@v1
        with:
          java-version: '11' 
 
-    # - name: Update version
-     #  run: mvn -B versions:set -DnewVersion=v${{github.run_number}} -DgenerateBackupPoms=false
+     - name: Update version
+       run: mvn -B versions:set -DnewVersion=v${{github.run_number}} -DgenerateBackupPoms=false
      - name: Setup Docker Buildx
        uses: docker/setup-buildx-action@v1
      
@@ -68,4 +63,4 @@ jobs:
        with:
          context: .
          push: true
-         tags: javaimage/repo1:v${{github.run_number}}
+         tags: myimage
