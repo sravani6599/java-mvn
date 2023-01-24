@@ -26,12 +26,12 @@
 
 #EXPOSE 8123
 #ENTRYPOINT ["java", "-war", "./webapp.war"]
-#FROM maven:3.6.3-jdk-11 as builder
-#COPY src /home/app/src     
-#COPY pom.xml /home/app
-#RUN mvn -f /home/app/pom.xml clean package
+FROM maven:3.6.3-jdk-11 as builder
+COPY src /home/app/src     
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
 
-#FROM openjdk:latest
-#COPY --from=build /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war /home/app/webapp.war
-#EXPOSE 8080
-#ENTRYPOINT ["java","-war","/home/app/webapp.war"]
+FROM openjdk:latest
+COPY --from=build /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war /home/app/webapp.war
+EXPOSE 8080
+ENTRYPOINT ["java","-war","/home/app/webapp.war"]
