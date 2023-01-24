@@ -29,11 +29,11 @@ jobs:
     - name: upload the artifact
       uses: actions/upload-artifact@v2
       with:
-        name: webapp.war
-        path: target/webapp.war
         
-    - name: Create artifacts directory and copy war file
-      run: mkdir artifacts && cp target/*.war artifacts
+        path: ./webapp
+        
+   # - name: Create artifacts directory and copy war file
+    #  run: mkdir artifacts && cp target/*.war artifacts
 
 
   Publish:
