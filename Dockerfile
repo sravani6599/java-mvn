@@ -45,7 +45,7 @@ COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
 #RUN ./mvnw dependency:resolve
 
-COPY src ./src
+#COPY src ./src
 ENTRYPOINT ["java","-war","/home/app/webapp.war"]
 
 #CMD ["./mvnw", "spring-boot:run"]
