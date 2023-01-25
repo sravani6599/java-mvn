@@ -40,7 +40,7 @@
 FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
-COPY --from=Build /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war /home/app/webapp.war
+COPY --from=build /home/ec2-user/actions-runner/_work/java-mvn/java-mvn/webapp/target/webapp.war /home/app/webapp.war
 
 COPY .mvn/ .mvn
 COPY mvn pom.xml ./
