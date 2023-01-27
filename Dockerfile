@@ -46,5 +46,6 @@ COPY .mvn/ .mvn
 COPY mvn pom.xml ./
 
 
+
 ENTRYPOINT ["java","-war","/app/webapp.war"]
 
