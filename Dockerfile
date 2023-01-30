@@ -52,7 +52,7 @@ FROM tomcat:jdk11-openjdk-slim-buster
 
 MAINTAINER sravani6599@gmail.com
 
-COPY target/webapp.war /usr/local/tomcat/webapps/docker-war-demo.war
+COPY /home/runner/work/java-mvn/java-mvn/webapp/webapp.war /usr/local/tomcat/webapps/docker-war-demo.war
 
 CMD ["catalina.sh", "run"]
 #FROM eclipse-temurin:17-jdk-jammy
