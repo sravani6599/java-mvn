@@ -17,7 +17,7 @@ on:
 jobs:
   Build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -48,7 +48,7 @@ jobs:
         path: ./webapp
   Publish:
      needs: Build
-     runs-on: self-hosted
+     runs-on: ubuntu-latest
      steps:
      - uses: actions/checkout@v3
      - name: Set up JDK 11
