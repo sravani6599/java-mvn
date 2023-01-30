@@ -4,13 +4,13 @@
 name: Build and Push docker image to Docker Hub
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   Build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -38,7 +38,7 @@ jobs:
 
   Publish:
      needs: Build
-     runs-on: self-hosted
+     runs-on: ubuntu-latest
      steps: 
      - uses: actions/checkout@v2
      - name: Set up JDK 11
